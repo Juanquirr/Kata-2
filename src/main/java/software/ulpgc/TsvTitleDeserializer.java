@@ -14,9 +14,14 @@ public class TsvTitleDeserializer implements TitleDeserializer {
     }
 
     private Title.TitleType toTitleType(String field) {
-        String upperCase = field.toUpperCase();
-        String temporal = field.replace("-", "");
-        return Title.TitleType.valueOf(upperCase.toCharArray()[0] + temporal.substring(1));
+        return Title.TitleType.valueOf(normalize(field));
     }
+
+    private String normalize(String field) {
+        String upperCase = field.toUpperCase();
+        String temp =  field.replace("-","");
+        return upperCase.toCharArray()[0] + temp.substring(1);
+    }
+
 
 }
