@@ -10,6 +10,6 @@ public class Main {
         List<Title> titles = new TsvFileTitleReader(file).read();
         HashMap<Title.TitleType, Integer> map = new HashMap<>();
         for (Title title : titles) map.put(title.titleType(), map.getOrDefault(title.titleType(), 0) + 1);
-        for (Title.TitleType titleType : map.keySet()) System.out.println(titleType + " " + map.get(titleType));
+        for (Title.TitleType titleType : map.keySet()) System.out.println(titleType + ": " + map.get(titleType));
     }
 }
